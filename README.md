@@ -43,12 +43,10 @@ Bu basit uygulama, kullanıcıya bir resim dosyası seçme ve bu resimdeki metni
   
       image=cv2.cvtColor(image,cv2.COLOR_BGR2GRAY)
   
-      #Resimde Kirlilik varsa onları temizliyoruz
       kernel=np.ones((1,1),np.uint8)
       image=cv2.erode(image,kernel,iterations=1)
       image=cv2.dilate(image,kernel,iterations=1)
   
-      #Resmimizde ki gri tonları siyah yapıyoruz
       image=cv2.adaptiveThreshold(image,255,cv2.ADAPTIVE_THRESH_GAUSSIAN_C,cv2.THRESH_BINARY,31,2)
       cv2.imwrite(kaynak+'temizlenmis',image)
   
@@ -66,7 +64,9 @@ fakat ben bu koda bir arayüz eklemek istedim ve bunu için **TKinter** adlı k�
 
 ## Arayüz Oluşturma
 
+İlk olarak basit bir arayüz oluşturdum ve kodu bu arayüze enterge ettim
 
+![Arayüz](https://github.com/AhmetBeratKocyigit/OpenCV-Ile-ImageToText/assets/135528027/c36f00c3-27b8-400f-a6eb-d222867909ae)
 
 ## Kullanım
 
@@ -94,10 +94,10 @@ fakat ben bu koda bir arayüz eklemek istedim ve bunu için **TKinter** adlı k�
 
 [![Uygulama Ekran Görüntüsü](screenshot.png)](screenshot.png)
 
-## Katkıda Bulunma
+## Yararlandığım Kaynaklar
 
-Eğer projeye katkıda bulunmak istiyorsanız, lütfen forklayın ve pull request gönderin.
+https://furkanuzun.wordpress.com/2018/12/22/python-opencv-ile-resimden-metin-okuma/
 
-## Lisans
+https://medium.com/@ibrahimirdem/tesseract-ile-yaz%C4%B1-karakteri-tan%C4%B1ma-python-8ca5e746951
 
-Bu proje [MIT lisansı](LICENSE) altında lisanslanmıştır.
+
